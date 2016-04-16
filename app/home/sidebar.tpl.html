@@ -1,13 +1,26 @@
 <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-    
-    <li class="active">
-        <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
+
+    <li ui-sref-active="active">
+        <a ui-sref="home.dashboard" href><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Pulpit</a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="home.items" href><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Zlecenia</a>
+    </li>
+    <li ui-sref-active="active">
+        <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Kontrahenci</a>
+    </li>
+
+    <li ui-sref-active="active">
+        <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Ustawienia</a>
         <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-            <li><a href="#">link1</a></li>
-            <li><a href="#">link2</a></li>
+            <li><a href="#">Użytkownicy</a></li>
+            <li><a href="#">Powiadomienia</a></li>
+            <li><a href="#">Ogólne</a></li>
         </ul>
     </li>
-    <li>
+
+
+<!--     <li>
         <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Shortcut</a>
         <ul class="nav-pills nav-stacked" style="list-style-type:none;">
             <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link1</a></li>
@@ -29,6 +42,6 @@
     </li>
     <li>
         <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact</a>
-    </li>
+    </li> -->
 </ul>
 <script src="js/sidebar_menu.js"></script>

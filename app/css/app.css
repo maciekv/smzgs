@@ -28,3 +28,20 @@
   content: "";
   padding: 0;
 }
+
+.item_status {
+color:white;
+text-align:center;
+  
+}
+.label.todo {
+  background: #3F729B;
+}
+
+.label.in_progress {
+ background: #c0ca33;
+}
+
+.label.done {
+background: #424242;
+}
