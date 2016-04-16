@@ -3,24 +3,122 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h4 class="modal-title">Dialog</h4>
     </div>
-    <form class="form-horizontal">        
+    <form class="form-horizontal">
         <div class="modal-body">
+            
             <div class="form-group">
-                <label for="pole1" class="col-xs-3 control-label">Pole1</label>
+                <label for="pole1" class="col-xs-3 control-label">Prowadzący:</label>
                 <div class="col-xs-7">
-                    <input type="text"  id="pole1" class="form-control"  required="required" >
+                    <select class="form-control">
+                        <option value="">- wybierz -  </option>
+                        <option value="">Prowadzacy 01</option>
+                        <option value="">Prowadzacy 02</option>
+                        <option value="">Prowadzacy 03</option>
+                        <option value="">Prowadzacy 04</option>
+                    </select>
                 </div>
             </div>
+
             <div class="form-group">
-                <label for="pole2" class="col-xs-3 control-label">Pole2</label>
-                <div class="col-xs-7">
-                    <input type="text"  id="pole2" class="form-control"  required="required" >
+                <label for="" class="col-xs-3 control-label">Data wplywu</label>
+                <div class="col-xs-5">
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="itemsAddCtrl.dt" is-open="itemsAddCtrl.popup1.opened" datepicker-options="itemsAddCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="itemsAddCtrl.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
                 </div>
-            </div>            
+            </div>
+
+            <div class="form-group">
+                <label for="pole1" class="col-xs-3 control-label">Klient:</label>
+                <div class="col-xs-7">
+                    <select class="form-control">
+                        <option value="">- wybierz -  </option>
+                        <option value="">Klient 01</option>
+                        <option value="">Klient 02</option>
+                        <option value="">Klient 03</option>
+                        <option value="">Klient 04</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pole1" class="col-xs-3 control-label">Opis zlecenia</label>
+                <div class="col-xs-7">
+                    <textarea style="min-height: 100px;" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label for="pole1" class="col-xs-3 control-label">Kategoria:</label>
+                <div class="col-xs-7">
+                    <select class="form-control">
+                        <option value="">- wybierz -  </option>
+                        <option value="">Kategoria 01</option>
+                        <option value="">Kategoria 02</option>
+                        <option value="">Kategoria 03</option>
+                        <option value="">Kategoria 04</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pole1" class="col-xs-3 control-label">Język:</label>
+                <div class="col-xs-7">
+                    <div class="radio radio-primary">
+                        <label>
+                            <input type="radio" name="lang" />
+                            PL
+                        </label>
+                        <label>
+                            <input type="radio" name="lang" />
+                            EN
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-xs-3 control-label">Przybliżony termin realizacji</label>
+                <div class="col-xs-5">
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="itemsAddCtrl.dt2" is-open="itemsAddCtrl.popup2.opened" datepicker-options="itemsAddCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="itemsAddCtrl.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-xs-3 control-label">Konieczność akceptacji ceny</label>
+                <div class="col-xs-7">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pole1" class="col-xs-3 control-label">Cena</label>
+                <div class="col-xs-7">
+                    <div class="input-group">
+                        <input type="text"  id="pole1" class="form-control"  required="required" >
+                        <select class="form-control">
+                            <option value="">PLN</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
-    
-    <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
-    </div>
-</form>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-raised" data-dismiss="modal">Create</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
+        </div>
+    </form>
 </div>

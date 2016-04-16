@@ -89,6 +89,7 @@
         vm.data = data;
         vm.open = open;
 
+        open();
         activate();
 
         ////////////////
@@ -100,16 +101,16 @@
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'items/items-edit.tpl.html',
-                controller: 'ItemsAddController',
-                size: "md",
+                controller: 'ItemsAddController as itemsAddCtrl',
+                size: "lg",
                 resolve: {
-                    
-                    }
-                
+
+                }
+
             });
 
             modalInstance.result.then(function(selectedItem) {
-               
+
             }, function() {
                 $log.info('Modal dismissed at: ' + new Date());
             });

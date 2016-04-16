@@ -45,3 +45,12 @@ text-align:center;
 .label.done {
 background: #424242;
 }
+
+.form-group label.control-label {
+  font-size:inherit;
+}
+
+.form-group {
+  padding-bottom:0px;
+  margin:0px;
+}
