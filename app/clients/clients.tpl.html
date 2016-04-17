@@ -1,6 +1,5 @@
 <div class="row">
     <div class="col-sm-12">
-        
         <button class="btn btn-raised btn-danger" ng-click="itemsCtrl.open()"><i class="fa fa-plus" aria-hidden="true"></i> New</button>
     </div>
     <div class="col-sm-12">
@@ -21,31 +20,26 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Date</th>
-                    <th>Head</th>
-                    <th>Client</th>
-                    <th>Description</th>
-                    <!-- <th>Price</th> -->
-                    <th>Termin</th>
-                    <th>Closed</th>
-                    <th>Status</th>
-                    
-                    <th >Actions</th>
+                    <th>Nazwa</th>
+                    <th>Akceptacja ceny</th>
+                    <th>Persons</th>
+                    <th>Zlecen</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="(key, item) in itemsCtrl.data">
-                    <td>{{::item.id}}</td>
-                    <td>{{::item.dateCreate}}</td>
-                    <td>{{::item.prowadzacy}} <a href ng-click="itemsCtrl.prowadzacyHistory(item)"><i class="fa fa-external-link-square" aria-hidden="true"></i</a></td>
-                    <td>{{::item.client.name}}<br /><a class="small" href >{{::item.client.conact.name}}</a></td>
-                    <td><a href>{{::item.category}}</a><br /><span class="small">{{::item.title}}</span></td>
-                    <!-- <td>{{::item.price}}</td> -->
-                    <td>{{::item.termin}} <a href ng-click="itemsCtrl.terminHistory(item)"><i class="fa fa-external-link-square" aria-hidden="true"></i</a></td>
-                    <td>{{::item.dateClosed}}</td>
-                    <td class="item_status ">
-                     <span class="label {{item.status}}">{{::item.statusText}}</span>
+                <tr ng-repeat="(key, client) in clientsCtrl.data">
+                    <td>{{::client.id}}</td>
+                    <td>{{::client.name}} ({{::client.langDef}})</td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <onput type="checkbox" ng-checked="client.defAcceptPrice" />
+                            </label>
+                        </div>
                     </td>
+                    <td>{{::client.persons}}</td>
+                    <td>{{::client.orders}}</td>
                     
                     <td><div style="max-width:100px;" class="btn-group  btn-group-justified  ">
                         <a href="javascript:void(0)"  ><i class="material-icons">note_add</i></a></a>

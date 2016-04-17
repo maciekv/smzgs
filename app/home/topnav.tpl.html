@@ -2,11 +2,23 @@
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"  id="menu-toggle">
     <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
     </button>
-    <a class="navbar-brand" href="#"><i class="fa fa-rocket fa-4"></i> ddd</a>
+    <a class="navbar-brand" href="#"><i class="fa fa-rocket fa-4"></i> Logo</a>
 </div>
-
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
         <li class="active" ><button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" style="margin-right:5px;margin-bottom:-5px;margin-top:-5px;max-height:30px;max-width:100%;" src="http://lorempixel.com/56/56/people/1" alt="icon"> Jak kowalski
+            <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)">Moje konto</a></li>
+                <li><a href="javascript:void(0)">Rozliczenia</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0)">Powiadomienia</a></li>
+            </ul>
+        </li>
+        <li><a href="#" ng-click="logout($event)"><i class="fa fa-sign-out"></i> Logout</a></li>
     </ul>
 </div>

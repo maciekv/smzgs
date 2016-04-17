@@ -88,15 +88,53 @@
 
         vm.data = data;
         vm.open = open;
-
-        open();
+        vm.prowadzacyHistory = prowadzacyHistory;
+        vm.terminHistory = terminHistory;
+        //open();
         activate();
 
         ////////////////
 
         function activate() {}
 
-        function open(size) {
+
+        function prowadzacyHistory(item) {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'items/prowadzacy-history.tpl.html',
+                controller: 'ProwadzacyHistoryController as prowHCtrl',
+                size: "md",
+                resolve: {
+                }
+
+            });
+
+            modalInstance.result.then(function(selectedItem) {
+
+            }, function() {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+
+        function terminHistory(item) {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'items/termin-history.tpl.html',
+                controller: 'TerminHistoryController as terminHCtrl',
+                size: "md",
+                resolve: {
+                }
+
+            });
+
+            modalInstance.result.then(function(selectedItem) {
+
+            }, function() {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }        
+
+        function open() {
 
             var modalInstance = $uibModal.open({
                 animation: true,

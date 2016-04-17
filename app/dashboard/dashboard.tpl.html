@@ -1,0 +1,42 @@
+<div class="col-sm-6">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-striped table-hover ">
+                <caption>Wg statusu</caption>
+                <tr ng-repeat="(key, status) in dashboardCtrl.data1">
+                    <td>
+                        <span class="label {{status.status}}">{{::status.statusText}}</span>
+                    </td>
+                    <td>{{::status.amount}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel-footer text-right">
+            <button class="btn btn-info btn-raised">On board</button>
+        </div>
+    </div>
+</div>
+<div class="col-sm-6">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-striped table-hover ">
+                <caption>Wg typu statusu</caption>
+                <tr>
+                    <td>To do</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>In progress</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Done</td>
+                    <td>25</td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel-footer text-right">
+            <button class="btn btn-info btn-raised">On board</button>
+        </div>
+    </div>
+</div>

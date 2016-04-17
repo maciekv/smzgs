@@ -12,3 +12,6 @@ gulp.task('serve', function() {
 
   gulp.watch(['**/*.html', 'css/**/*.css', '**/*.js'], {cwd: 'app'}, reload);
 });
+
+
+gulp.task("default", ["serve"]);
