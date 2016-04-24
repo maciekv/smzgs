@@ -54,3 +54,14 @@ background: #424242;
   padding-bottom:0px;
   margin:0px;
 }
+
+.datePicker {
+}
+.datePicker input {
+   width:96px;
+  text-align:center;
+}
+
+.form-group label.control-label {
+  color:#333;
+}

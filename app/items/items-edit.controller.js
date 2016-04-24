@@ -5,23 +5,12 @@
         .module('myApp')
         .controller('ItemsAddController', ItemsAddController);
 
-    ItemsAddController.$inject = ['$log', 'item'];
+    ItemsAddController.$inject = ['$log', '$parse', 'item', 'SETTINGS'];
 
     /* @ngInject */
-    function ItemsAddController($log, item) {
+    function ItemsAddController($log, $parse, item, SETTINGS) {
         var vm = this;
         vm.title = 'ItemsAddController';
-
-        if (item) {
-            vm.item = item;
-        }
-        activate();
-
-        ////////////////
-
-        function activate() {
-        }
-
         vm.dateOptions = {
             // dateDisabled: disabled,
             formatYear: 'yy',
@@ -29,19 +18,35 @@
             // minDate: new Date(),
             startingDay: 1
         };
-        vm.popup1 = {};
-        vm.open1 = function open1() {
-            // alert('s');
+        vm.dt1 = new Date();
+        
+        vm.open1 = open1;
+        vm.open2 = open2;
+
+        if (item) {
+            vm.item = item;
+        }
+
+        vm.SETTINGS = SETTINGS;
+        activate();
+
+        ////////////////
+
+        function activate() {}
+
+        function open1() {
+            if (!$parse('opened')(vm.popup1)) {
+                vm.popup1 = {};    
+            }
             vm.popup1.opened = true;
         };
 
-        vm.popup2 = {};
-        vm.open2 = function open2() {
-            // alert('s');
+       
+        function open2() {
+            if (!$parse('opened')(vm.popup2)) {
+                vm.popup2 = {};    
+            }
             vm.popup2.opened = true;
         };
-
-
-
     }
 })();

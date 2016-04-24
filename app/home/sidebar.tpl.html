@@ -9,13 +9,15 @@
     <li ui-sref-active="active">
         <a ui-sref="home.clients" href><span class="fa-stack fa-lg pull-left"><i class="fa fa-building-o fa-stack-1x "></i></span>Kontrahenci</a>
     </li>
-
+<!--     <li ui-sref-active="active">
+        <a ui-sref="home.users" href><span class="fa-stack fa-lg pull-left"><i class="fa fa-building-o fa-stack-1x "></i></span>Użytkownicy</a>
+    </li> -->
     <li ui-sref-active="active">
         <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span> Ustawienia</a>
         <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-            <li><a href="#">Użytkownicy</a></li>
-            <li><a href="#">Powiadomienia</a></li>
-            <li><a href="#">Ogólne</a></li>
+            <li ui-sref-active="active"><a ui-sref="home.users">Użytkownicy</a></li>
+            <li ui-sref-active="active"><a href="#">Grupy kontrahentów</a></li>
+     
         </ul>
     </li>
 

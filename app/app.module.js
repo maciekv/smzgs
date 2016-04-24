@@ -4,6 +4,7 @@
     angular
         .module('myApp', [
             'ui.router',
+            'ui.tinymce',
             'ngStorage',
             'ui.bootstrap',
             'ngLodash',

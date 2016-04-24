@@ -17,6 +17,7 @@
     "angular-environment": "^1.0.3",
     "ngstorage": "^0.3.10",
     "restangular": "^1.5.2",
-    "ng-lodash": "^0.4.0"
+    "ng-lodash": "^0.4.0",
+    "angular-ui-tinymce": "^0.0.15"
   }
 }

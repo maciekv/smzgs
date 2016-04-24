@@ -12,6 +12,8 @@
         var vm = this;
         vm.title = 'ClientsController';
         vm.open = open;
+        vm.remove = remove;
+
         vm.data = [{
             id: 1,
             'name': 'x-gs',
@@ -48,19 +50,44 @@
 
         function activate() {}
 
+        function remove(client) {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'clients/clients-rem.tpl.html',
+                controller: 'ClientsRemController as clientsRemCtrl',
+                size: "md",
+                resolve: {
+                    'client': [function() {
+                        return client || false;
+                    }]
+                }
+            });
 
-        function open() {
+            modalInstance.result.then(function(selectedItem) {
+                activate();
+            }, function() {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+
+
+        function open(client) {
+
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'clients/client-edit.tpl.html',
                 controller: 'ClientEditController as clientEditCtrl',
                 size: "lg",
-                resolve: {}
+                resolve: {
+                    'client': [function(){
+                        return client || false;
+                    }]
+                }
 
             });
 
-            modalInstance.result.then(function(selectedItem) {
-
+            modalInstance.result.then(function(client) {
+                activate();
             }, function() {
                 $log.info('Modal dismissed at: ' + new Date());
             });

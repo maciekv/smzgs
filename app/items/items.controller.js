@@ -5,10 +5,10 @@
         .module('myApp')
         .controller('ItemsCtrl', ItemsCtrl);
 
-    ItemsCtrl.$inject = ['$log', '$uibModal', '$parse'];
+    ItemsCtrl.$inject = ['$log', '$uibModal', '$parse', 'SETTINGS'];
 
     /* @ngInject */
-    function ItemsCtrl($log, $uibModal, $parse) {
+    function ItemsCtrl($log, $uibModal, $parse, SETTINGS) {
         var vm = this;
         vm.title = 'ItemsCtrl';
 
@@ -91,11 +91,13 @@
         vm.prowadzacyHistory = prowadzacyHistory;
         vm.terminHistory = terminHistory;
         vm.correction = correction;
+        vm.remove = remove;
+        // date pickers
         vm.open1 = open1;
         vm.open2 = open2;
 
-        vm.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-        vm.format = vm.formats[0];
+
+        vm.SETTINGS = SETTINGS; // vm.formats[0];
         vm.dt1 = new Date();
         vm.dt2 = new Date();
         vm.altInputFormats = ['M!/d!/yyyy'];
@@ -124,7 +126,6 @@
                 controller: 'ProwadzacyHistoryController as prowHCtrl',
                 size: "md",
                 resolve: {}
-
             });
 
             modalInstance.result.then(function(selectedItem) {
@@ -135,7 +136,6 @@
         }
 
         function terminHistory(item) {
-       
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'items/termin-history.tpl.html',
@@ -157,15 +157,15 @@
 
         function open1() {
             if (!$parse('opened')(vm.popup1)) {
-                vm.popup1 = {};    
+                vm.popup1 = {};
             }
             vm.popup1.opened = true;
         };
 
         function open2() {
             if (!$parse('opened')(vm.popup2)) {
-                vm.popup2 = {};    
-            }            
+                vm.popup2 = {};
+            }
             vm.popup2.opened = true;
         };
 
@@ -177,19 +177,39 @@
                 controller: 'CorrectionController as correctionCtrl',
                 size: "lg",
                 resolve: {
-                    'item' : [function(){
+                    'item': [function() {
                         return item || false;
                     }]
                 }
             });
 
             modalInstance.result.then(function(selectedItem) {
-
+                activate();
             }, function() {
                 $log.info('Modal dismissed at: ' + new Date());
             });
         };
 
+
+        function remove(item) {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'items/items-rem.tpl.html',
+                controller: 'ItemsRemController as itemsRemCtrl',
+                size: "md",
+                resolve: {
+                    'item': [function() {
+                        return item || false;
+                    }]
+                }
+            });
+
+            modalInstance.result.then(function(selectedItem) {
+                activate();
+            }, function() {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
 
         function open(item) {
             var modalInstance = $uibModal.open({
@@ -198,14 +218,14 @@
                 controller: 'ItemsAddController as itemsAddCtrl',
                 size: "lg",
                 resolve: {
-                    'item' : [function(){
+                    'item': [function() {
                         return item || false;
                     }]
                 }
             });
 
             modalInstance.result.then(function(selectedItem) {
-
+                activate();
             }, function() {
                 $log.info('Modal dismissed at: ' + new Date());
             });

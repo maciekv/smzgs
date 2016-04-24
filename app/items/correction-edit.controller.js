@@ -5,13 +5,13 @@
         .module('myApp')
         .controller('CorrectionController', CorrectionController);
 
-    CorrectionController.$inject = ['$log'];
+    CorrectionController.$inject = ['$log', 'SETTINGS'];
 
     /* @ngInject */
-    function CorrectionController($log) {
+    function CorrectionController($log, SETTINGS) {
         var vm = this;
         vm.title = 'CorrectionController';
-
+        vm.SETTINGS = SETTINGS
         activate();
 
         ////////////////

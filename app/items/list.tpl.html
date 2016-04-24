@@ -1,22 +1,28 @@
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         
-        <button class="btn btn-raised btn-danger" ng-click="itemsCtrl.open()"><i class="fa fa-plus" aria-hidden="true"></i> New</button>
+        <button class="btn btn-raised btn-danger" ng-click="itemsCtrl.open()"><i class="fa fa-plus" aria-hidden="true"></i> Item</button>
     </div>
+    <div class="col-sm-6 text-right">
+        <button type="button" class="btn btn-raised btn-primary">Eksport</button>
+        
+    </div>
+</div>
+<div class="row">
     <div class="col-sm-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Wyszukaj</h3>
+                <h3 class="panel-title">Filtr</h3>
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-sm-4">
                         <select name="prowadzacy" id="inputProwadzacy" class="form-control" >
                             <option value="">- kategoria - </option>
-                            <option>gruby druk</option>
-                            <option>drobny druk</option>
-                            <option value="">tłumaczenia</option>
-                            <option>druk solwentowy</option>
+                            <option>Kategoria 01</option>
+                            <option>Kategoria 02</option>
+                            <option value="">Kategoria 03</option>
+                            <option>Kategoria 04</option>
                         </select>
                     </div>
                     <div class="col-sm-4">
@@ -32,30 +38,34 @@
                         <input type="text" name="search" id="inputSearch" class="form-control" value="" required="required" placeholder="znajdz">
                         
                     </div>
-                    <div class="col-sm-2">
-                        <p class="input-group">
-                            <input style="min-width:96px;" type="text" class="form-control" uib-datepicker-popup="{{itemsCtrl.format}}" ng-model="itemsCtrl.dt1" is-open="itemsCtrl.popup1.opened" datepicker-options="itemsCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="itemsCtrl.altInputFormats" />
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="itemsCtrl.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </p>
+                    <div class="col-sm-2 datePicker">
+                        
+                        <input type="text" class="form-control datePicker" uib-datepicker-popup="{{itemsCtrl.SETTINGS.dateFormat}}" ng-model="itemsCtrl.dt1" is-open="itemsCtrl.popup1.opened" datepicker-options="itemsCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="itemsCtrl.altInputFormats" ng-click="itemsCtrl.open1()" />
+                        <!--                             <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="itemsCtrl.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span> -->
+                        
                         
                     </div>
-                    <div class="col-sm-2">
-                        <p class="input-group">
-                            <input style="min-width:96px;" type="text" class="form-control" uib-datepicker-popup="{{itemsCtrl.format}}" ng-model="itemsCtrl.dt2" is-open="itemsCtrl.popup2.opened" datepicker-options="itemsCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="itemsCtrl.altInputFormats" />
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="itemsCtrl.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </p>
+                    <div class="col-sm-2 datePicker">
+                        
+                        <input   type="text" class="form-control" uib-datepicker-popup="{{itemsCtrl.SETTINGS.dateFormat}}" ng-model="itemsCtrl.dt2" is-open="itemsCtrl.popup2.opened" datepicker-options="itemsCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="itemsCtrl.altInputFormats" ng-click="itemsCtrl.open2()" />
+                        <!--                             <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="itemsCtrl.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span> -->
+                        
                     </div>
                     <div class="col-sm-4">
                         <select name="prowadzacy" id="inputProwadzacy" class="form-control" >
                             <option value="">- prowadzący - </option>
+                            <option value="">Prowadzacy 01</option>
+                            <option value="">Prowadzacy 02</option>
+                            <option value="">Prowadzacy 03</option>
+                            <option value="">Prowadzacy 04</option>
                         </select>
                     </div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-raised btn-primary">Eksport</button>
+                        
                     </div>
                 </div>
             </div>
@@ -97,8 +107,8 @@
                     
                     <td><div style="max-width:100px;" class="btn-group  btn-group-justified  ">
                         <a href   ng-click="itemsCtrl.correction(item)"><i class="material-icons">note_add</i></a></a>
-                        <a href ng-click="itemsCtrl.open(item)"  ><i class="material-icons">mode_edit</i></a>
-                        <a href="javascript:void(0)" ><i class="material-icons">delete</i></a>
+                        <a href ng-click="itemsCtrl.open(item)"><i class="material-icons">mode_edit</i></a>
+                        <a href ng-click="itemsCtrl.remove(item)"><i class="material-icons">delete</i></a>
                     </div>
                 </td>
             </tr>

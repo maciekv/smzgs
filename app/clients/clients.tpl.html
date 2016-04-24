@@ -1,16 +1,71 @@
 <div class="row">
     <div class="col-sm-12">
-        <button class="btn btn-raised btn-danger" ng-click="clientsCtrl.open()"><i class="fa fa-plus" aria-hidden="true"></i> New</button>
+        <button class="btn btn-raised btn-danger" ng-click="clientsCtrl.open()"><i class="fa fa-plus" aria-hidden="true"></i> Contractor</button>
     </div>
     <div class="col-sm-12">
-        <div class="panel panel-danger">
+        <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Wyszukaj</h3>
+                <h3 class="panel-title">Filtr</h3>
             </div>
             <div class="panel-body">
-                <input type="text" name="search" id="inputSearch" class="form-control" value="" required="required" placeholder="znajdz">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <select name="prowadzacy" id="inputProwadzacy" class="form-control" >
+                            <option value="">- grupa - </option>
+                            <option>Grupa 01</option>
+                            <option>Grupa 02</option>
+                            <option value="">Grupa 03</option>
+                            <option>Grupa 04</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <select name="prowadzacy" id="inputProwadzacy" class="form-control" >
+                            <option value="">- status - </option>
+                            <option>do zrobienia</option>
+                            <option value="">w realizacji</option>
+                            <option value="">w testach</option>
+                            <option>zakonczone</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="search" id="inputSearch" class="form-control" value="" required="required" placeholder="znajdz">
+                        
+                    </div>
+                    <div class="col-sm-2 datePicker">
+                        
+                        <input type="text" class="form-control datePicker" uib-datepicker-popup="{{itemsCtrl.SETTINGS.dateFormat}}" ng-model="itemsCtrl.dt1" is-open="itemsCtrl.popup1.opened" datepicker-options="itemsCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="itemsCtrl.altInputFormats" ng-click="itemsCtrl.open1()" />
+                        <!--                             <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="itemsCtrl.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span> -->
+                        
+                        
+                    </div>
+                    <div class="col-sm-2 datePicker">
+                        
+                        <input   type="text" class="form-control" uib-datepicker-popup="{{itemsCtrl.SETTINGS.dateFormat}}" ng-model="itemsCtrl.dt2" is-open="itemsCtrl.popup2.opened" datepicker-options="itemsCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="itemsCtrl.altInputFormats" ng-click="itemsCtrl.open2()" />
+                        <!--                             <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="itemsCtrl.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span> -->
+                        
+                    </div>
+                    <div class="col-sm-4">
+                        <select name="prowadzacy" id="inputProwadzacy" class="form-control" >
+                            <option value="">- prowadzący - </option>
+                            <option value="">Prowadzacy 01</option>
+                            <option value="">Prowadzacy 02</option>
+                            <option value="">Prowadzacy 03</option>
+                            <option value="">Prowadzacy 04</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
             </div>
         </div>
+        
+    </div>
+</div>
         
     </div>
 </div>
@@ -34,7 +89,7 @@
                     <td>
                         <div class="checkbox">
                             <label>
-                                <onput type="checkbox" ng-checked="client.defAcceptPrice" />
+                                <input type="checkbox"  ng-checked="client.defAcceptPrice" />
                             </label>
                         </div>
                     </td>
@@ -42,9 +97,9 @@
                     <td>{{::client.orders}}</td>
                     
                     <td><div style="max-width:100px;" class="btn-group  btn-group-justified  ">
-                        <a href="javascript:void(0)"  ><i class="material-icons">note_add</i></a></a>
-                        <a href="javascript:void(0)"  ><i class="material-icons">mode_edit</i></a>
-                        <a href="javascript:void(0)" ><i class="material-icons">delete</i></a>
+                        <a href ui-sref="home.clients.persons({id:1})" ><i class="material-icons" >people</i> </a>
+                        <a href ng-click="clientsCtrl.open(client)"  ><i class="material-icons">mode_edit</i></a>
+                        <a href  ng-click="clientsCtrl.remove(client)"><i class="material-icons">delete</i></a>
                     </div>
                 </td>
             </tr>

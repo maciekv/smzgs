@@ -9,12 +9,96 @@
             <div class="form-group">
                 <label for="pole1" class="col-xs-3 control-label">Nazwa firmy</label>
                 <div class="col-xs-7">
-                        <input type="text"  id="pole1" class="form-control"  required="required" >
+                        <input type="text"  ng-model="clientEditCtrl.client.name" id="pole1" class="form-control"  required="required" > 
+                     
+                        
                 </div>
             </div>
+            <div class="form-group">
+                <label for="pole2" class="col-xs-3 control-label"> </label>
+                <div class="col-xs-7">                        
+                    <input type="text"  id="pole2" class="form-control"  required="required" >
+                </div>
+            </div>            
+            <div class="form-group">
+                <label for="identyfikator" class="col-xs-3 control-label">Identyfikator*</label>
+                <div class="col-xs-7">
+                        <input type="text"  id="identyfikator" class="form-control"  required="required" >
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="nip" class="col-xs-3 control-label">Prefiks UE, NIP*</label>
+                <div class="col-xs-3">
+                        <select   class="form-control">
+                            <option>- wybierz -</option>
+                            <option>PL - Polska</option>
+                            <option>AT - Austria</option>
+                        </select>
+                </div>
+                <div class="col-xs-4">
+                        <input type="text"  id="nip" class="form-control"  required="required" >
+                </div>            
 
+           
+            </div>
+
+            <br />
+            <div class="form-group">
+                <label for="ulica_nr" class="col-xs-3 control-label">Ulica i nr</label>
+                <div class="col-xs-7">
+                    <input type="text"  id="ulica_nr" class="form-control"   >
+                </div>
+            </div>  
+
+            <div class="form-group">
+                <label for="kod_pocztowy" class="col-xs-3 control-label">Kod pocztowy*</label>
+                <div class="col-xs-4">
+                    <input type="text"  id="kod_pocztowy" class="form-control"  required="required" >
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="miejscowosc" class="col-xs-3 control-label">Miejscowość*</label>
+                <div class="col-xs-7">
+                    <input type="text"  id="miejscowosc" class="form-control"  required="required" >
+                </div>
+            </div>   
+            <div class="form-group">
+                <label for="kraj" class="col-xs-3 control-label">Kraj</label>
+                <div class="col-xs-7">
+                    <input type="text"  id="kraj" class="form-control"    >
+                </div>
+            </div>  
+             <br />
+            <div class="form-group">
+                <label for="lang" class="col-xs-3 control-label">Język interfejsu</label>
+                <div class="col-xs-3">
+                    <select name="lang" id="lang" class="form-control">
+                        <option value="">PL</option>
+                        <option value="">EN</option>
+                        <option value="">DE</option>
+                    </select>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="currency" class="col-xs-3 control-label">Waluta domyślna</label>
+                <div class="col-xs-3">
+                    <select name="currency" id="currency" class="form-control">
+                        <option value="">PLN</option>
+                        <option value="">EUR</option>
+                    </select>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="currency" class="col-xs-3 control-label">Domyślna akceptacja ceny</label>
+                <div class="col-xs-7">
+                     <div class="checkbox">
+                         <label>
+                            <input type="checkbox"  />
+                         </label>
+                     </div>
+                </div>
+            </div>                        
         </div>
-        
         <div class="modal-footer">
             <!-- <button type="button" class="btn btn-primary btn-raised" data-dismiss="modal">Create</button> -->
             <button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
