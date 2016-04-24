@@ -5,13 +5,16 @@
         .module('myApp')
         .controller('ItemsAddController', ItemsAddController);
 
-    ItemsAddController.$inject = ['$log'];
+    ItemsAddController.$inject = ['$log', 'item'];
 
     /* @ngInject */
-    function ItemsAddController($log) {
+    function ItemsAddController($log, item) {
         var vm = this;
         vm.title = 'ItemsAddController';
 
+        if (item) {
+            vm.item = item;
+        }
         activate();
 
         ////////////////
@@ -22,8 +25,8 @@
         vm.dateOptions = {
             // dateDisabled: disabled,
             formatYear: 'yy',
-            maxDate: new Date(2020, 5, 22),
-            minDate: new Date(),
+            // maxDate: new Date(2020, 5, 22),
+            // minDate: new Date(),
             startingDay: 1
         };
         vm.popup1 = {};

@@ -5,10 +5,10 @@
         .module('myApp')
         .controller('ItemsCtrl', ItemsCtrl);
 
-    ItemsCtrl.$inject = ['$log', '$uibModal'];
+    ItemsCtrl.$inject = ['$log', '$uibModal', '$parse'];
 
     /* @ngInject */
-    function ItemsCtrl($log, $uibModal) {
+    function ItemsCtrl($log, $uibModal, $parse) {
         var vm = this;
         vm.title = 'ItemsCtrl';
 
@@ -90,6 +90,25 @@
         vm.open = open;
         vm.prowadzacyHistory = prowadzacyHistory;
         vm.terminHistory = terminHistory;
+        vm.correction = correction;
+        vm.open1 = open1;
+        vm.open2 = open2;
+
+        vm.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        vm.format = vm.formats[0];
+        vm.dt1 = new Date();
+        vm.dt2 = new Date();
+        vm.altInputFormats = ['M!/d!/yyyy'];
+        vm.dateOptions = {
+            // dateDisabled: disabled,
+            formatYear: 'yy',
+            //maxDate: new Date(2020, 5, 22),
+            //minDate: new Date(),
+            startingDay: 1
+        };
+
+
+
         //open();
         activate();
 
@@ -104,8 +123,7 @@
                 templateUrl: 'items/prowadzacy-history.tpl.html',
                 controller: 'ProwadzacyHistoryController as prowHCtrl',
                 size: "md",
-                resolve: {
-                }
+                resolve: {}
 
             });
 
@@ -117,14 +135,17 @@
         }
 
         function terminHistory(item) {
+       
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'items/termin-history.tpl.html',
                 controller: 'TerminHistoryController as terminHCtrl',
                 size: "md",
                 resolve: {
+                    'item': [function() {
+                        return item || false;
+                    }]
                 }
-
             });
 
             modalInstance.result.then(function(selectedItem) {
@@ -132,19 +153,55 @@
             }, function() {
                 $log.info('Modal dismissed at: ' + new Date());
             });
-        }        
+        }
 
-        function open() {
+        function open1() {
+            if (!$parse('opened')(vm.popup1)) {
+                vm.popup1 = {};    
+            }
+            vm.popup1.opened = true;
+        };
 
+        function open2() {
+            if (!$parse('opened')(vm.popup2)) {
+                vm.popup2 = {};    
+            }            
+            vm.popup2.opened = true;
+        };
+
+
+        function correction(item) {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'items/correction-edit.tpl.html',
+                controller: 'CorrectionController as correctionCtrl',
+                size: "lg",
+                resolve: {
+                    'item' : [function(){
+                        return item || false;
+                    }]
+                }
+            });
+
+            modalInstance.result.then(function(selectedItem) {
+
+            }, function() {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        };
+
+
+        function open(item) {
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'items/items-edit.tpl.html',
                 controller: 'ItemsAddController as itemsAddCtrl',
                 size: "lg",
                 resolve: {
-
+                    'item' : [function(){
+                        return item || false;
+                    }]
                 }
-
             });
 
             modalInstance.result.then(function(selectedItem) {

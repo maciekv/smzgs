@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-md-8">
+        <form class="form-horizontal">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Dane podstawowe</h4>
+                    <div class="form-group">
+                        <label for="pole1" class="col-xs-3 control-label">Imię *</label>
+                        <div class="col-xs-7">
+                            <input type="text"  value="Jan" id="pole1" class="form-control"  required="required" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-xs-3 control-label">Nazwisko *</label>
+                        <div class="col-xs-7">
+                            <input type="text"  value="Kowalski"  id="lastname" class="form-control"  required="required" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-xs-3 control-label">Adres e-mail *</label>
+                        <div class="col-xs-7">
+                            <input type="text"  value="jan.kowalski@grandsoftware.pl" id="email" class="form-control"  required="required" >
+                        </div>
+                    </div>
+                    <hr />
+                    <h4>Ustawienia</h4>
+                    <div class="form-group">
+                        <label for="lang" class="col-xs-3 control-label">Język interfejsu</label>
+                        <div class="col-xs-7">
+                            <select id="lang" class="form-control">
+                                <option>Polski</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lang" class="col-xs-3 control-label">Strefa czasowa</label>
+                        <div class="col-xs-7">
+                            <select id="lang" class="form-control">
+                                <option>GMT+00:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <button type="button" class="btn btn-primary btn-raised" data-dismiss="modal">Create</button> -->
+                </div>
+                <div class="panel-footer text-right">
+                    <button class="btn btn-info btn-raised">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <form class="form-horizontal">
+        
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>Zmiana hasła</h4>
+                <div class="form-group">
+                    <label for="currentPasswd" class="col-xs-3 control-label">Aktualne hasło</label>
+                    <div class="col-xs-7">
+                        <input type="text"  id="currentPasswd" class="form-control"  >
+                    </div>
+                </div>
+<br />
+                <div class="form-group">
+                    <label for="newPass1" class="col-xs-3 control-label">Nowe hasło</label>
+                    <div class="col-xs-4">
+                        <input type="text"  id="newPass1" placeholder="wpisz hasło" class="form-control"  >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="newPass1" class="col-xs-3 control-label">Powtórz hasło</label>
+                    <div class="col-xs-4">
+                        <input type="text"  id="newPass1" placeholder="powtórz hasło" class="form-control"  >
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer text-right">
+                <button class="btn btn-info btn-raised">Save</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

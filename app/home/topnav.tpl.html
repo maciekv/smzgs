@@ -13,10 +13,10 @@
             <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" style="margin-right:5px;margin-bottom:-5px;margin-top:-5px;max-height:30px;max-width:100%;" src="http://lorempixel.com/56/56/people/1" alt="icon"> Jak kowalski
             <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="javascript:void(0)">Moje konto</a></li>
-                <li><a href="javascript:void(0)">Rozliczenia</a></li>
+                <li><a ui-sref="home.account" href>Moje konto</a></li>
+                <li><a ui-sref="home.payment" href>Rozliczenia</a></li>
                 <li class="divider"></li>
-                <li><a href="javascript:void(0)">Powiadomienia</a></li>
+                <li><a ui-sref="home.notify" href>Powiadomienia</a></li>
             </ul>
         </li>
         <li><a href="#" ng-click="logout($event)"><i class="fa fa-sign-out"></i> Logout</a></li>

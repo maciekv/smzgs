@@ -4,12 +4,60 @@
         <button class="btn btn-raised btn-danger" ng-click="itemsCtrl.open()"><i class="fa fa-plus" aria-hidden="true"></i> New</button>
     </div>
     <div class="col-sm-12">
-        <div class="panel panel-danger">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Wyszukaj</h3>
             </div>
             <div class="panel-body">
-                <input type="text" name="search" id="inputSearch" class="form-control" value="" required="required" placeholder="znajdz">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <select name="prowadzacy" id="inputProwadzacy" class="form-control" >
+                            <option value="">- kategoria - </option>
+                            <option>gruby druk</option>
+                            <option>drobny druk</option>
+                            <option value="">tłumaczenia</option>
+                            <option>druk solwentowy</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <select name="prowadzacy" id="inputProwadzacy" class="form-control" >
+                            <option value="">- status - </option>
+                            <option>do zrobienia</option>
+                            <option value="">w realizacji</option>
+                            <option value="">w testach</option>
+                            <option>zakonczone</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="search" id="inputSearch" class="form-control" value="" required="required" placeholder="znajdz">
+                        
+                    </div>
+                    <div class="col-sm-2">
+                        <p class="input-group">
+                            <input style="min-width:96px;" type="text" class="form-control" uib-datepicker-popup="{{itemsCtrl.format}}" ng-model="itemsCtrl.dt1" is-open="itemsCtrl.popup1.opened" datepicker-options="itemsCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="itemsCtrl.altInputFormats" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="itemsCtrl.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                        
+                    </div>
+                    <div class="col-sm-2">
+                        <p class="input-group">
+                            <input style="min-width:96px;" type="text" class="form-control" uib-datepicker-popup="{{itemsCtrl.format}}" ng-model="itemsCtrl.dt2" is-open="itemsCtrl.popup2.opened" datepicker-options="itemsCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="itemsCtrl.altInputFormats" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="itemsCtrl.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <select name="prowadzacy" id="inputProwadzacy" class="form-control" >
+                            <option value="">- prowadzący - </option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-raised btn-primary">Eksport</button>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -44,12 +92,12 @@
                     <td>{{::item.termin}} <a href ng-click="itemsCtrl.terminHistory(item)"><i class="fa fa-external-link-square" aria-hidden="true"></i</a></td>
                     <td>{{::item.dateClosed}}</td>
                     <td class="item_status ">
-                     <span class="label {{item.status}}">{{::item.statusText}}</span>
+                        <span class="label {{item.status}}">{{::item.statusText}}</span>
                     </td>
                     
                     <td><div style="max-width:100px;" class="btn-group  btn-group-justified  ">
-                        <a href="javascript:void(0)"  ><i class="material-icons">note_add</i></a></a>
-                        <a href="javascript:void(0)"  ><i class="material-icons">mode_edit</i></a>
+                        <a href   ng-click="itemsCtrl.correction(item)"><i class="material-icons">note_add</i></a></a>
+                        <a href ng-click="itemsCtrl.open(item)"  ><i class="material-icons">mode_edit</i></a>
                         <a href="javascript:void(0)" ><i class="material-icons">delete</i></a>
                     </div>
                 </td>
